@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { MatBottomSheet } from '@angular/material/bottom-sheet';
+import { AuthComponent } from './tools/auth/auth.component';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Project';
+  constructor(private loginSheet: MatBottomSheet) {
+
+  }
+  OnLoginClick() {
+    this.loginSheet.open(AuthComponent);
+  }
 }
