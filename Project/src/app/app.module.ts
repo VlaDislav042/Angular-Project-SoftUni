@@ -14,13 +14,15 @@ import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatCardModule } from '@angular/material/card';
 import { AuthComponent } from './tools/auth/auth.component';
 import { EmailVerificationComponent } from './pages/email-verification/email-verification.component';
+import { ProfileComponent } from './tools/profile/profile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     AuthComponent,
-    EmailVerificationComponent
+    EmailVerificationComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
