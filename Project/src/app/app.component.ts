@@ -3,6 +3,7 @@ import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { AuthComponent } from './tools/auth/auth.component';
 import { FirebaseTSAuth } from 'firebasets/firebasetsAuth/firebaseTSAuth';
 import { Router } from '@angular/router';
+import { FirebaseTSFirestore } from 'firebasets/firebasetsFirestore/firebaseTSFirestore';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,10 @@ export class AppComponent {
   title = 'Project';
 
   isLoggedIn = false;
+  userHasProfile = true;
+  userDocument: UserDocument | undefined;
   auth = new FirebaseTSAuth();
+  firestore = new FirebaseTSFirestore();
 
   constructor(private loginSheet: MatBottomSheet, private router: Router) {
     this.auth.listenToSignInStateChanges(
@@ -27,7 +31,7 @@ export class AppComponent {
             router.navigate(["emailVerification"]);
           },
           whenSignedInAndEmailVerified: user => {
-
+            this.getUserProfile();
           },
           whenChanged: user => {
 
@@ -35,6 +39,17 @@ export class AppComponent {
         })
       }
     );
+  }
+
+  getUserProfile() {
+    this.firestore.listenToDocument({
+      name: "Getting Document",
+      path: ["Users", this.auth.getAuth().currentUser?.uid as string],
+      onUpdate: (result) => {
+        this.userDocument = <UserDocument>result.data();
+        this.userHasProfile = result.exists;
+      }
+    });
   }
 
   onLogoutClick() {
@@ -48,4 +63,10 @@ export class AppComponent {
   OnLoginClick() {
     this.loginSheet.open(AuthComponent);
   }
+}
+
+
+export interface UserDocument {
+  publicName: string,
+  description: string
 }
