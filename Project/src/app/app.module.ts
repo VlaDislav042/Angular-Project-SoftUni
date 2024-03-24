@@ -15,6 +15,11 @@ import { MatCardModule } from '@angular/material/card';
 import { AuthComponent } from './tools/auth/auth.component';
 import { EmailVerificationComponent } from './pages/email-verification/email-verification.component';
 import { ProfileComponent } from './tools/profile/profile.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
+import { PostfeedComponent } from './pages/postfeed/postfeed.component';
+import { CreatePostComponent } from './tools/create-post/create-post.component';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +27,9 @@ import { ProfileComponent } from './tools/profile/profile.component';
     HomeComponent,
     AuthComponent,
     EmailVerificationComponent,
-    ProfileComponent
+    ProfileComponent,
+    PostfeedComponent,
+    CreatePostComponent
   ],
   imports: [
     BrowserModule,
@@ -31,6 +38,8 @@ import { ProfileComponent } from './tools/profile/profile.component';
     MatButtonModule,
     MatBottomSheetModule,
     MatCardModule,
+    MatDialogModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
