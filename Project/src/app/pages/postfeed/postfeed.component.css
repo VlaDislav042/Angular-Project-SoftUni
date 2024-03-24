@@ -3,3 +3,10 @@
     bottom: 2em;
     right: 2em;
 }
+
+#post-feed {
+    max-width: 500px;
+    margin-top: 5em;
+    margin-right: auto;
+    margin-left: auto;
+}

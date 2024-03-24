@@ -19,6 +19,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { PostfeedComponent } from './pages/postfeed/postfeed.component';
 import { CreatePostComponent } from './tools/create-post/create-post.component';
+import { PostComponent } from './tools/post/post.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { CreatePostComponent } from './tools/create-post/create-post.component';
     EmailVerificationComponent,
     ProfileComponent,
     PostfeedComponent,
-    CreatePostComponent
+    CreatePostComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,
