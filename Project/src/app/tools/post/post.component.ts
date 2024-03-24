@@ -34,6 +34,6 @@ export class PostComponent {
   }
 
   onReplyClick() {
-    this.dialog.open(ReplyComponent);
+    this.dialog.open(ReplyComponent, { data: this.postData.postId });
   }
 }
