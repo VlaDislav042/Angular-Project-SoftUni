@@ -20,6 +20,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { PostfeedComponent } from './pages/postfeed/postfeed.component';
 import { CreatePostComponent } from './tools/create-post/create-post.component';
 import { PostComponent } from './tools/post/post.component';
+import { ReplyComponent } from './tools/reply/reply.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { PostComponent } from './tools/post/post.component';
     ProfileComponent,
     PostfeedComponent,
     CreatePostComponent,
-    PostComponent
+    PostComponent,
+    ReplyComponent
   ],
   imports: [
     BrowserModule,
