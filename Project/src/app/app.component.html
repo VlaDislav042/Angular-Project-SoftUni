@@ -1,11 +1,15 @@
 <div id="nav-bar">
   <div id="nav-bar-content">
     <div id="nav-bar-left">
-      <div style="font-size: 1.5em;" class="nav-bar-items">MyApp</div>
+      <div style="font-size: 1.5em;" class="nav-bar-items" routerLink="/">MyApp</div>
     </div>
     <div id="nav-bar-right">
       <div *ngIf="!loggedIn()" class="nav-bar-items" (click)="OnLoginClick()">Login</div>
-      <div *ngIf="loggedIn() && userHasProfile" class="nav-bar-items">Hello, {{getUsername()}}</div>
+      <div *ngIf="loggedIn() && userHasProfile" class="nav-bar-items" routerLink="/profile">Hello {{getUsername()}}
+      </div>
+      <div *ngIf="loggedIn()" class="nav-bar-items" routerLink="/movies">Movies</div>
+      <div *ngIf="loggedIn()" class="nav-bar-items" routerLink="/tvShows">TV Shows</div>
+      <div *ngIf="loggedIn()" class="nav-bar-items" routerLink="/actors">Actors</div>
       <div *ngIf="loggedIn()" class="nav-bar-items" (click)="onLogoutClick()">Logout</div>
     </div>
   </div>

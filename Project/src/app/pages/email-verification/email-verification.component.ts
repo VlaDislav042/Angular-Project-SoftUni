@@ -15,6 +15,7 @@ export class EmailVerificationComponent {
   ngOnInit(): void {
     if (this.auth.isSignedIn() && !this.auth.getAuth().currentUser?.emailVerified) {
       this.auth.sendVerificationEmail();
+
     } else {
       this.router.navigate([""]);
     }

@@ -21,6 +21,10 @@ import { PostfeedComponent } from './pages/postfeed/postfeed.component';
 import { CreatePostComponent } from './tools/create-post/create-post.component';
 import { PostComponent } from './tools/post/post.component';
 import { ReplyComponent } from './tools/reply/reply.component';
+import { MoviesComponent } from './pages/movies/movies.component';
+import { TvShowsComponent } from './pages/tv-shows/tv-shows.component';
+import { ActorsComponent } from './pages/actors/actors.component';
+import { MyProfileComponent } from './pages/my-profile/my-profile.component';
 
 
 @NgModule({
@@ -33,7 +37,11 @@ import { ReplyComponent } from './tools/reply/reply.component';
     PostfeedComponent,
     CreatePostComponent,
     PostComponent,
-    ReplyComponent
+    ReplyComponent,
+    MoviesComponent,
+    TvShowsComponent,
+    ActorsComponent,
+    MyProfileComponent
   ],
   imports: [
     BrowserModule,

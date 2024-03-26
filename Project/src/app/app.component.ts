@@ -24,6 +24,7 @@ export class AppComponent {
       user => {
         this.auth.checkSignInState({
           whenSignedIn: user => {
+            router.navigate(['postfeed'])
           },
           whenSignedOut: user => {
             AppComponent.userDocument = null;
@@ -36,7 +37,7 @@ export class AppComponent {
           },
           whenChanged: user => {
 
-          }
+          },
         })
       }
     );
@@ -49,6 +50,7 @@ export class AppComponent {
   getUsername() {
     return AppComponent.userDocument?.publicName;
   }
+
 
   getUserProfile() {
     this.firestore.listenToDocument({
@@ -67,6 +69,7 @@ export class AppComponent {
 
   onLogoutClick() {
     this.auth.signOut();
+    this.router.navigate(['']);
   }
 
   loggedIn() {

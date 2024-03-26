@@ -11,6 +11,7 @@ import { MatBottomSheetRef } from '@angular/material/bottom-sheet';
 export class AuthComponent {
   state = AuthState.LOGIN;
   firebasetsAuth: FirebaseTSAuth;
+  auth = new FirebaseTSAuth();
 
   constructor(private bottomSheetRef: MatBottomSheetRef) {
     this.firebasetsAuth = new FirebaseTSAuth();
@@ -45,6 +46,7 @@ export class AuthComponent {
       );
     }
   }
+
   OnLogin(
     loginEmail: HTMLInputElement,
     loginPassword: HTMLInputElement,
@@ -77,6 +79,15 @@ export class AuthComponent {
       });
     }
   }
+
+  OnGuestClick() {
+    this.firebasetsAuth.signInAnonymously({
+      onComplete: (uc) => {
+        this.bottomSheetRef.dismiss();
+      }
+    });
+  }
+
 
   isNotEmpty(text: string) {
     return text != null && text.length > 0;

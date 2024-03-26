@@ -28,7 +28,6 @@ export class ProfileComponent {
         description: description
       },
       onComplete: (docId) => {
-        alert("Profile completed");
         nameInput.value = "";
         descriptionInput.value = "";
 
