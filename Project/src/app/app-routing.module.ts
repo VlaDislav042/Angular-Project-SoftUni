@@ -7,11 +7,12 @@ import { MoviesComponent } from './pages/movies/movies.component';
 import { TvShowsComponent } from './pages/tv-shows/tv-shows.component';
 import { ActorsComponent } from './pages/actors/actors.component';
 import { MyProfileComponent } from './pages/my-profile/my-profile.component';
+import { AuthActivate } from './tools/guards/auth.activate';
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
   { path: "emailVerification", component: EmailVerificationComponent },
-  { path: "postfeed", component: PostfeedComponent },
+  { path: "postfeed", component: PostfeedComponent, },
   { path: "movies", component: MoviesComponent },
   { path: "tvShows", component: TvShowsComponent },
   { path: "actors", component: ActorsComponent },

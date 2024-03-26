@@ -13,8 +13,12 @@ export class AuthComponent {
   firebasetsAuth: FirebaseTSAuth;
   auth = new FirebaseTSAuth();
 
-  constructor(private bottomSheetRef: MatBottomSheetRef) {
+  constructor(private bottomSheetRef: MatBottomSheetRef,) {
     this.firebasetsAuth = new FirebaseTSAuth();
+  }
+
+  get isLogged(): boolean {
+    return !!this.auth.isSignedIn();
   }
 
   OnRegisterClick(
@@ -88,6 +92,9 @@ export class AuthComponent {
     });
   }
 
+  get isLoggedIn(): boolean {
+    return this.auth.isSignedIn();
+  }
 
   isNotEmpty(text: string) {
     return text != null && text.length > 0;

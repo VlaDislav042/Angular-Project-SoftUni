@@ -76,6 +76,7 @@ export class AppComponent {
     return this.auth.isSignedIn();
   }
 
+
   OnLoginClick() {
     this.loginSheet.open(AuthComponent);
   }
