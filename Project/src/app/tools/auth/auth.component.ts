@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseTSAuth } from 'firebasets/firebasetsAuth/firebaseTSAuth';
 import { MatBottomSheetRef } from '@angular/material/bottom-sheet';
+import { ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { Observable, map, take } from 'rxjs';
+import { Router } from '@angular/router';
+//import {AngularFireAuth } from '@angular/f'
 
 
 @Component({
@@ -13,12 +17,15 @@ export class AuthComponent {
   firebasetsAuth: FirebaseTSAuth;
   auth = new FirebaseTSAuth();
 
-  constructor(private bottomSheetRef: MatBottomSheetRef,) {
+  constructor(private bottomSheetRef: MatBottomSheetRef, private router: Router) {
     this.firebasetsAuth = new FirebaseTSAuth();
   }
-
-  get isLogged(): boolean {
-    return !!this.auth.isSignedIn();
+  isAuthenticated(): boolean {
+    if (localStorage.getItem("token")) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   OnRegisterClick(
@@ -68,6 +75,8 @@ export class AuthComponent {
         onFail: (err) => {
           alert(err);
         }
+      }).then(() => {
+        localStorage.setItem('token', 'true');
       });
     }
   }
@@ -95,6 +104,8 @@ export class AuthComponent {
   get isLoggedIn(): boolean {
     return this.auth.isSignedIn();
   }
+
+
 
   isNotEmpty(text: string) {
     return text != null && text.length > 0;

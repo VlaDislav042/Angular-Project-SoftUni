@@ -25,6 +25,12 @@ import { MoviesComponent } from './pages/movies/movies.component';
 import { TvShowsComponent } from './pages/tv-shows/tv-shows.component';
 import { ActorsComponent } from './pages/actors/actors.component';
 import { MyProfileComponent } from './pages/my-profile/my-profile.component';
+import { MovieComponent } from './tools/movie/movie.component';
+import { CreateMovieComponent } from './tools/create-movie/create-movie.component';
+import { ActorComponent } from './tools/actor/actor.component';
+import { TvShowComponent } from './tools/tv-show/tv-show.component';
+import { CreateActorComponent } from './tools/create-actor/create-actor.component';
+import { CreateTvShowComponent } from './tools/create-tv-show/create-tv-show.component';
 
 
 @NgModule({
@@ -41,7 +47,13 @@ import { MyProfileComponent } from './pages/my-profile/my-profile.component';
     MoviesComponent,
     TvShowsComponent,
     ActorsComponent,
-    MyProfileComponent
+    MyProfileComponent,
+    MovieComponent,
+    CreateMovieComponent,
+    ActorComponent,
+    TvShowComponent,
+    CreateActorComponent,
+    CreateTvShowComponent
   ],
   imports: [
     BrowserModule,

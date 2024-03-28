@@ -68,7 +68,13 @@ export class AppComponent {
   }
 
   onLogoutClick() {
-    this.auth.signOut();
+    this.auth.signOut({
+      onFail: (err) => {
+        alert(err)
+      }
+    }).then(() => {
+      localStorage.removeItem("token");
+    })
     this.router.navigate(['']);
   }
 
