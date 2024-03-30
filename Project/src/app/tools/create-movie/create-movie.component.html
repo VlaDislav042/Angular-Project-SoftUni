@@ -1,1 +1,32 @@
-<p>create-movie works!</p>
+<div class="container">
+    <h1>Create Movie</h1>
+    <form>
+        <div class="form-group">
+            <label for="movieName">Title</label><br>
+            <input #titleInput type="text" name="title" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="lastName">Genre</label><br>
+            <input #genreInput type="text" name="genre" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="director">Director</label><br>
+            <input #directorInput type="text" name="director" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="year">Year</label><br>
+            <input #yearInput type="text" name="year" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label><br>
+            <input #descriptionInput type="text" name="description" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="image">Image</label><br>
+            <input #imageUrl type="file" name="image" class="form-control" required>
+        </div>
+        <pre></pre>
+        <button (click)="onCreateClick(titleInput, genreInput, directorInput, yearInput, descriptionInput, imageUrl)"
+            class="btn btn-primary" type="submit">Create</button>
+    </form>
+</div>

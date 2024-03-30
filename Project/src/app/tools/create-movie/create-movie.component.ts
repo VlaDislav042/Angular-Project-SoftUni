@@ -1,4 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FirebaseTSFirestore, } from 'firebasets/firebasetsFirestore/firebaseTSFirestore';
+import { FirebaseTSApp } from 'firebasets/firebasetsApp/firebaseTSApp';
+import { FirebaseTSStorage } from 'firebasets/firebasetsStorage/firebaseTSStorage';
+import { FirebaseTSAuth } from 'firebasets/firebasetsAuth/firebaseTSAuth';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-movie',
@@ -6,5 +11,70 @@ import { Component } from '@angular/core';
   styleUrls: ['./create-movie.component.css']
 })
 export class CreateMovieComponent {
+  selectedImageFile: File | any = null;
+  auth = new FirebaseTSAuth();
+  firestore = new FirebaseTSFirestore();
+  storage = new FirebaseTSStorage();
 
+  constructor(private router: Router) { }
+
+  onCreateClick(
+    titleInput: HTMLInputElement,
+    genreInput: HTMLInputElement,
+    directorInput: HTMLInputElement,
+    yearInput: HTMLInputElement,
+    descriptionInput: HTMLInputElement,
+    imageUrl: HTMLInputElement,
+
+  ) {
+    let title = titleInput.value;
+    let genre = genreInput.value;
+    let director = directorInput.value;
+    let year = yearInput.value;
+    let description = descriptionInput.value;
+    this.selectedImageFile = imageUrl.files?.[0] || null;
+
+    if (title.length <= 0 || genre.length <= 0 || director.length <= 0 || year.length <= 0 || description.length <= 0) return;
+
+    if (this.selectedImageFile) {
+      this.uploadImagePost(title, genre, director, year, description)
+    } else {
+      this.uploadPost(title, genre, director, year, description)
+    }
+  }
+
+  uploadImagePost(title: string, genre: string, director: string, year: string, description: string) {
+    let movieId = this.firestore.genDocId();
+    this.storage.upload({
+      uploadName: "upload Image Movie",
+      path: ["Movie", movieId, "image"],
+      data: {
+        data: this.selectedImageFile
+      },
+      onComplete: (downloadUrl) => {
+
+      }
+    })
+  }
+
+
+  uploadPost(title: string, genre: string, director: string, year: string, description: string) {
+    this.firestore.create(
+      {
+        path: ["Movie"],
+        data: {
+          title: title,
+          genre: genre,
+          director: director,
+          year: year,
+          description: description,
+          timestamp: FirebaseTSApp.getFirestoreTimestamp(),
+          creatorId: this.auth.getAuth().currentUser?.uid,
+        },
+        onComplete: (docId) => {
+          this.router.navigate(["movies"])
+        }
+      }
+    )
+  }
 }

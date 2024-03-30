@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { MovieData } from 'src/app/pages/movies/movies.component';
 
 @Component({
   selector: 'app-movie',
@@ -7,4 +8,5 @@ import { Component } from '@angular/core';
 })
 export class MovieComponent {
 
+  @Input() movieData!: MovieData;
 }

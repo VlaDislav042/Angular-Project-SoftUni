@@ -60,9 +60,7 @@ export class AppComponent {
         AppComponent.userDocument = <UserDocument>result.data();
         this.userHasProfile = result.exists;
         AppComponent.userDocument.userId = this.auth.getAuth().currentUser?.uid;
-        if (this.userHasProfile) {
-          this.router.navigate(["postfeed"])
-        }
+
       }
     });
   }

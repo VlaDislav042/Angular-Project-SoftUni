@@ -1,12 +1,15 @@
 <mat-card>
     <mat-card-header>
-        <mat-card-title>name</mat-card-title>
-        <mat-card-subtitle>descripiton</mat-card-subtitle>
+        <mat-card-title>Name</mat-card-title>
+        <mat-card-subtitle>Description</mat-card-subtitle>
     </mat-card-header>
-    <img mat-card-image src="imageUrl">
+    <img src="{{movieData.imageUrl}}" mat-card-image>
+    <mat-card-content>
+        {{movieData.title}}
+    </mat-card-content>
     <mat-card-actions>
-        <mat-icon class="action-item" color="warn">favorite_border</mat-icon>
-        <mat-icon class="action-item" color="warn">save</mat-icon>
-        <mat-icon class="action-item" color="warn">send</mat-icon>
+        <mat-icon class="action-item">favorite_border</mat-icon>
+        <!-- <mat-icon class="action-item">favorite</mat-icon> -->
+        <mat-icon class="action-item">info</mat-icon>
     </mat-card-actions>
 </mat-card>
