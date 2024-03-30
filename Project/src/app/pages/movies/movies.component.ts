@@ -32,26 +32,26 @@ export class MoviesComponent {
         result.docs.forEach(
           doc => {
             let movie = <MovieData>doc.data();
-            movie.movieId = doc.id;
             this.movies.push(movie);
           }
         );
+
       },
       onFail: (err) => {
-
+        alert(err)
       }
     })
   }
+
 }
 
 export interface MovieData {
-  title: string,
-  genre: string,
-  director: string,
-  year: string,
-  description: string,
-  imageUrl?: string,
   creatorId: string,
-  movieId: string
+  description: string,
+  director: string,
+  genre: string,
+  imageUrl?: string,
+  title: string,
+  year: string
 
 }

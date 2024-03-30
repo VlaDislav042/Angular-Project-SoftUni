@@ -34,16 +34,8 @@ export class CreateMovieComponent {
     let description = descriptionInput.value;
     this.selectedImageFile = imageUrl.files?.[0] || null;
 
-    if (title.length <= 0 || genre.length <= 0 || director.length <= 0 || year.length <= 0 || description.length <= 0) return;
+    if (title.length <= 0 || genre.length <= 0 || director.length <= 0 || year.length <= 0 || description.length <= 0) return alert("All fields are required");
 
-    if (this.selectedImageFile) {
-      this.uploadImagePost(title, genre, director, year, description)
-    } else {
-      this.uploadPost(title, genre, director, year, description)
-    }
-  }
-
-  uploadImagePost(title: string, genre: string, director: string, year: string, description: string) {
     let movieId = this.firestore.genDocId();
     this.storage.upload({
       uploadName: "upload Image Movie",
@@ -52,29 +44,27 @@ export class CreateMovieComponent {
         data: this.selectedImageFile
       },
       onComplete: (downloadUrl) => {
-
+        this.firestore.create(
+          {
+            path: ["Movie", movieId],
+            data: {
+              title: title,
+              genre: genre,
+              director: director,
+              year: year,
+              description: description,
+              imageUrl: downloadUrl,
+              timestamp: FirebaseTSApp.getFirestoreTimestamp(),
+              creatorId: this.auth.getAuth().currentUser?.uid,
+            },
+            onComplete: (docId) => {
+              this.router.navigate(["movies"])
+            }
+          }
+        )
       }
     })
   }
 
 
-  uploadPost(title: string, genre: string, director: string, year: string, description: string) {
-    this.firestore.create(
-      {
-        path: ["Movie"],
-        data: {
-          title: title,
-          genre: genre,
-          director: director,
-          year: year,
-          description: description,
-          timestamp: FirebaseTSApp.getFirestoreTimestamp(),
-          creatorId: this.auth.getAuth().currentUser?.uid,
-        },
-        onComplete: (docId) => {
-          this.router.navigate(["movies"])
-        }
-      }
-    )
-  }
 }

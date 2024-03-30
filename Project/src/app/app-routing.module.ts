@@ -16,6 +16,7 @@ import { CreateTvShowComponent } from './tools/create-tv-show/create-tv-show.com
 const routes: Routes = [
   { path: "", component: HomeComponent },
   { path: "emailVerification", component: EmailVerificationComponent, },
+  { path: "postfeed", component: PostfeedComponent },
   { path: "movies", component: MoviesComponent },
   { path: "tvShows", component: TvShowsComponent },
   { path: "actors", component: ActorsComponent },

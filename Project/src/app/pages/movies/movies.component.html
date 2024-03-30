@@ -1,4 +1,4 @@
-<div>
-    <app-movie></app-movie>
+<div id="movies">
+    <app-movie *ngFor="let movie of movies" [movieData]="movie"></app-movie>
 </div>
 <button (click)="OnAddClicked()" mat-fab color="warn" id="post-button"><mat-icon>add</mat-icon></button>
