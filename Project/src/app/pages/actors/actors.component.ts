@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FirebaseTSFirestore, Limit, OrderBy } from 'firebasets/firebasetsFirestore/firebaseTSFirestore';
 
 @Component({
   selector: 'app-actors',
@@ -9,7 +10,43 @@ import { Router } from '@angular/router';
 export class ActorsComponent {
   constructor(private router: Router) { }
 
-  OnAddClicked() {
-    this.router.navigate(['createMovie']);
+  firestore = new FirebaseTSFirestore();
+  actors: ActorData[] = [];
+
+  ngOnInit(): void {
+    this.getActors();
   }
+  OnAddClicked() {
+    this.router.navigate(['createActor']);
+  }
+
+  getActors() {
+    this.firestore.getCollection({
+      path: ["Actor"],
+      where: [
+        new OrderBy("timestamp", "desc"),
+      ],
+      onComplete: (result) => {
+        result.docs.forEach(
+          doc => {
+            let actor = <ActorData>doc.data();
+            this.actors.push(actor);
+          }
+        );
+
+      },
+      onFail: (err) => {
+        alert(err)
+      }
+    })
+  }
+}
+
+export interface ActorData {
+  age: string,
+  creatorId: string,
+  description: string,
+  imageUrl: string,
+  movies: string,
+  name: string,
 }

@@ -26,7 +26,6 @@ export class MoviesComponent {
       path: ["Movie"],
       where: [
         new OrderBy("timestamp", "desc"),
-        new Limit(10)
       ],
       onComplete: (result) => {
         result.docs.forEach(

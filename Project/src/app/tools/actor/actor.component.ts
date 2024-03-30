@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { ActorData } from 'src/app/pages/actors/actors.component';
 
 @Component({
   selector: 'app-actor',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./actor.component.css']
 })
 export class ActorComponent {
-
+  @Input() actorData!: ActorData;
 }

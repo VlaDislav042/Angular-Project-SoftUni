@@ -1,1 +1,28 @@
-<p>create-actor works!</p>
+<div class="container">
+    <h1>Create Movie</h1>
+    <form>
+        <div class="form-group">
+            <label for="movieName">Name</label><br>
+            <input #nameInput type="text" name="name" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="lastName">Age</label><br>
+            <input #ageInput type="text" name="age" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="director">Movies</label><br>
+            <input #moviesInput type="text" name="movies" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label><br>
+            <input #descriptionInput type="text" name="description" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="image">Image</label><br>
+            <input #imageUrl type="file" name="image" class="form-control" required>
+        </div>
+        <pre></pre>
+        <button (click)="onCreateClick(nameInput, ageInput, moviesInput, descriptionInput, imageUrl)"
+            class="btn btn-primary" type="submit">Create</button>
+    </form>
+</div>

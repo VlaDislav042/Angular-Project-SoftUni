@@ -34,7 +34,7 @@ export class CreateMovieComponent {
     let description = descriptionInput.value;
     this.selectedImageFile = imageUrl.files?.[0] || null;
 
-    if (title.length <= 0 || genre.length <= 0 || director.length <= 0 || year.length <= 0 || description.length <= 0) return alert("All fields are required");
+    if (title.length <= 0 || genre.length <= 0 || director.length <= 0 || year.length <= 0 || description.length <= 0 || !this.selectedImageFile) return alert("All fields are required");
 
     let movieId = this.firestore.genDocId();
     this.storage.upload({

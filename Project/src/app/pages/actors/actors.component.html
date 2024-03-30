@@ -1,2 +1,4 @@
-<p>actors works!</p>
+<div id="actors">
+    <app-actor *ngFor="let actor of actors" [actorData]="actor"></app-actor>
+</div>
 <button (click)="OnAddClicked()" mat-fab color="warn" id="post-button"><mat-icon>add</mat-icon></button>
