@@ -1,5 +1,5 @@
 <div class="container">
-    <h1>Create Movie</h1>
+    <h1>Create Actor</h1>
     <form>
         <div class="form-group">
             <label for="movieName">Name</label><br>
@@ -19,7 +19,10 @@
         </div>
         <div class="form-group">
             <label for="image">Image</label><br>
-            <input #imageUrl type="file" name="image" class="form-control" required>
+            <label for="file-upload" class="custom-file-upload">
+                <input #imageUrl type="file" name="image" class="form-control" required>
+                Upload Image
+            </label>
         </div>
         <pre></pre>
         <button (click)="onCreateClick(nameInput, ageInput, moviesInput, descriptionInput, imageUrl)"
