@@ -1,2 +1,4 @@
-<p>tv-shows works!</p>
+<div id="shows">
+    <app-tv-show *ngFor="let show of shows" [showData]="show"></app-tv-show>
+</div>
 <button (click)="OnAddClicked()" mat-fab color="warn" id="post-button"><mat-icon>add</mat-icon></button>

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { ShowData } from 'src/app/pages/tv-shows/tv-shows.component';
 
 @Component({
   selector: 'app-tv-show',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./tv-show.component.css']
 })
 export class TvShowComponent {
+  @Input() showData!: ShowData;
 
 }
