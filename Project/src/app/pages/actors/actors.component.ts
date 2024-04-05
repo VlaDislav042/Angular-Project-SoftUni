@@ -43,6 +43,7 @@ export class ActorsComponent {
 }
 
 export interface ActorData {
+  actorId: string,
   age: string,
   creatorId: string,
   description: string,

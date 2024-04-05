@@ -1,15 +1,17 @@
-<mat-card>
-    <mat-card-header>
-        <mat-card-title>Name</mat-card-title>
-        <mat-card-subtitle>Description</mat-card-subtitle>
-    </mat-card-header>
-    <img src="{{actorData.imageUrl}}" mat-card-image>
-    <mat-card-content>
-        {{actorData.name}}
-    </mat-card-content>
-    <mat-card-actions>
-        <mat-icon class="action-item">favorite_border</mat-icon>
-        <!-- <mat-icon class="action-item">favorite</mat-icon> -->
-        <mat-icon class="action-item">info</mat-icon>
-    </mat-card-actions>
+<mat-card class="posts-container">
+    <div class="post">
+        <mat-card-header>
+            <mat-card-title class="user-label">Name</mat-card-title>
+            <mat-card-subtitle>Description</mat-card-subtitle>
+        </mat-card-header>
+        <img src="{{actorData.imageUrl}}" mat-card-image>
+        <mat-card-content>
+            {{actorData.name}}
+        </mat-card-content>
+        <mat-card-actions>
+            <mat-icon class="action-item">favorite_border</mat-icon>
+            <!-- <mat-icon class="action-item">favorite</mat-icon> -->
+            <mat-icon class="action-item" (click)="onInfoClick()">info</mat-icon>
+        </mat-card-actions>
+    </div>
 </mat-card>

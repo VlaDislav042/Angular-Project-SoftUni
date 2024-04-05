@@ -19,6 +19,7 @@ export class CreateActorComponent {
 
   constructor(private router: Router) { }
 
+
   onCreateClick(
     nameInput: HTMLInputElement,
     ageInput: HTMLInputElement,
@@ -53,6 +54,7 @@ export class CreateActorComponent {
               imageUrl: downloadUrl,
               timestamp: FirebaseTSApp.getFirestoreTimestamp(),
               creatorId: this.auth.getAuth().currentUser?.uid,
+              actorId: actorId
             },
             onComplete: (docId) => {
               this.router.navigate(["actors"])

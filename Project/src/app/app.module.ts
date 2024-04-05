@@ -32,6 +32,7 @@ import { MovieComponent } from './tools/movie/movie.component';
 import { CreateActorComponent } from './tools/create-actor/create-actor.component';
 import { CreateTvShowComponent } from './tools/create-tv-show/create-tv-show.component';
 import { FormsModule } from '@angular/forms';
+import { ActorDetailComponent } from './tools/actor-detail/actor-detail.component';
 
 
 @NgModule({
@@ -55,6 +56,7 @@ import { FormsModule } from '@angular/forms';
     CreateActorComponent,
     CreateTvShowComponent,
     MovieComponent,
+    ActorDetailComponent,
   ],
   imports: [
     BrowserModule,

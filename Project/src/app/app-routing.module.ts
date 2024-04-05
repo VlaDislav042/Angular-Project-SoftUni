@@ -12,6 +12,7 @@ import { AuthGuard } from './guard/auth.guard';
 import { CreateMovieComponent } from './tools/create-movie/create-movie.component';
 import { CreateActorComponent } from './tools/create-actor/create-actor.component';
 import { CreateTvShowComponent } from './tools/create-tv-show/create-tv-show.component';
+import { ActorDetailComponent } from './tools/actor-detail/actor-detail.component';
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: "createMovie", component: CreateMovieComponent },
   { path: "createActor", component: CreateActorComponent },
   { path: "createTvShow", component: CreateTvShowComponent },
+  { path: "actorDetail", component: ActorDetailComponent },
   { path: "**", component: HomeComponent }
 
 ];

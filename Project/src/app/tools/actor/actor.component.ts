@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ActorData } from 'src/app/pages/actors/actors.component';
+import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-actor',
@@ -8,4 +8,24 @@ import { ActorData } from 'src/app/pages/actors/actors.component';
 })
 export class ActorComponent {
   @Input() actorData!: ActorData;
+  private static actorData: ActorData | null;
+  constructor(private router: Router) { }
+
+  onInfoClick() {
+    this.router.navigate(["actorDetail"]);
+  }
+
+  public static getActorData() {
+    return ActorComponent.actorData;
+  }
+}
+
+export interface ActorData {
+  actorId: string,
+  age: string,
+  creatorId: string,
+  description: string,
+  imageUrl: string,
+  movies: string,
+  name: string,
 }
